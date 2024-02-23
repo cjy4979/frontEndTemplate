@@ -33,8 +33,14 @@ const authSlice = createSlice({
   initialState: initialState,
   reducers: {
     signIn: (state, { payload }) => {
-      const { id, sessionId, username } = payload
-      createSigninSession(username, sessionId, id, defaultStorageExpirationDate)
+      const { id, sessionId, username, role } = payload
+      createSigninSession(
+        role,
+        username,
+        sessionId,
+        id,
+        defaultStorageExpirationDate
+      )
       state.isUserSignedIn = true
       state.userInfo.userName = username
     },

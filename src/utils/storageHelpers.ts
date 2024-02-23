@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 export enum StorageTypes {
-  SESSION_ID_STORAGE = 'caerulean_s',
-  USERNAME_STORAGE = 'caerulean_u',
-  UID_STORAGE = 'caerulean_w_i'
+  SESSION_ID_STORAGE = 'storage_s',
+  USERNAME_STORAGE = 'storage_u',
+  ROLE_STORAGE = 'storage_r',
+  UID_STORAGE = 'storage_w_i'
 }
 
 export const defaultStorageExpirationDate = 1 / 3
