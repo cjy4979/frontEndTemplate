@@ -1,7 +1,7 @@
 import { Login } from '@/api/auth/auth'
 import { signIn } from '@/reduxFeatures/authSlice'
 import { useAppDispatch, useAppSelector } from '@/reduxFeatures/hooks'
-import { Button, Checkbox, Form, Input, message } from 'antd'
+import { Button, Checkbox, Form, Input, Typography, message } from 'antd'
 import router from 'next/router'
 import React, { useEffect, useState } from 'react'
 
@@ -66,46 +66,51 @@ const LoginPage = () => {
           <div></div>
         </div>
         {/* right-login card */}
-        <Form
-          form={form}
-          name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-        >
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: '请输入用户名!' }]}
+        <div className="w-[500px] h-[600px] flex items-center justify-center">
+          <Form
+            form={form}
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
           >
-            <Input className="input" />
-          </Form.Item>
+            <Typography.Title level={2} className=" text-center">
+              Login
+            </Typography.Title>
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[{ required: true, message: '请输入用户名!' }]}
+            >
+              <Input className="input" />
+            </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: '请输入密码!' }]}
-          >
-            <Input.Password className="input" />
-          </Form.Item>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[{ required: true, message: '请输入密码!' }]}
+            >
+              <Input.Password className="input" />
+            </Form.Item>
 
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            wrapperCol={{ offset: 8, span: 16 }}
-          >
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+            <Form.Item
+              name="remember"
+              valuePropName="checked"
+              wrapperCol={{ offset: 8, span: 16 }}
+            >
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
-              登录
-            </Button>
-          </Form.Item>
-        </Form>
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <Button type="primary" danger htmlType="submit">
+                登录
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </div>
   )

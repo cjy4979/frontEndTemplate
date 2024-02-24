@@ -9,8 +9,7 @@ import { hideLoading, showLoading } from '@/components/loading'
 import { signOut } from '@/reduxFeatures/authSlice'
 import store from '@/reduxFeatures/store'
 import { StorageTypes, readStorage } from '@/utils/storageHelpers'
-import { useRouter } from 'next/router'
-const router = useRouter()
+import router from 'next/router'
 
 const config = {
   //默认请求地址，可以在.env开头的文件中修改
