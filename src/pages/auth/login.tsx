@@ -13,9 +13,9 @@ const LoginPage = () => {
   useEffect(() => {
     if (userIsSignIn) {
       //根据你的逻辑来写
-      //router.push('/user/index').then(() => {})
+      router.push('/user/index').then(() => {})
     }
-  }, [router, userIsSignIn])
+  }, [userIsSignIn])
 
   //进入登陆页面检查是否记住密码，记住密码则直接填充
   useEffect(() => {
@@ -30,7 +30,7 @@ const LoginPage = () => {
         })
       }
     }
-  }, [])
+  }, [form])
 
   const onFinish = async (values: any) => {
     const { username, password, remember } = values

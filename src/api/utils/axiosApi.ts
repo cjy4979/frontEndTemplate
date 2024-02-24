@@ -150,4 +150,6 @@ class RequestHttp {
   }
 }
 
-export default new RequestHttp(config)
+const requestHttp = new RequestHttp(config)
+
+export default requestHttp
