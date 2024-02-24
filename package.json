@@ -38,9 +38,18 @@
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
+  "eslintConfig": {
+    "extends": "plugin:prettier/recommended",
+    "rules": {
+      "prettier/prettier": ["error", "optional"]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "npx prettier --config .prettierrc --write"
-    ]
+    "*.{js,jsx}": ["npx prettier --config .prettierrc --write"]
   }
 }
