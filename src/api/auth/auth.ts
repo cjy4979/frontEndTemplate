@@ -6,7 +6,7 @@ export async function Signup(requestBody: IAuth.AuthSignUpRequest) {
 }
 
 export async function Login(requestBody: IAuth.AuthSignInRequest) {
-  return await api.post('/auth/login', requestBody)
+  return await api.post<IAuth.AuthSignInResponse>('/auth/login', requestBody)
 }
 
 export async function Logout() {

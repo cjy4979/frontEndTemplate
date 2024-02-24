@@ -1,8 +1,10 @@
 import store from '../reduxFeatures/store'
 import '@fortawesome/fontawesome-free/css/all.css'
 import type { AppProps } from 'next/app'
+import { ConfigProvider } from 'antd'
 import React from 'react'
 import { Provider } from 'react-redux'
+import theme from '../theme/themeConfig'
 import 'tailwindcss/tailwind.css'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -10,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <AnyComponent {...pageProps} />
+      <ConfigProvider theme={theme}>
+        <AnyComponent {...pageProps} />
+      </ConfigProvider>
     </Provider>
   )
 }

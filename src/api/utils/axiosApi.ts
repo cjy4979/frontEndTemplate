@@ -9,6 +9,8 @@ import { hideLoading, showLoading } from '@/components/loading'
 import { signOut } from '@/reduxFeatures/authSlice'
 import store from '@/reduxFeatures/store'
 import { StorageTypes, readStorage } from '@/utils/storageHelpers'
+import { useRouter } from 'next/router'
+const router = useRouter()
 
 const config = {
   //默认请求地址，可以在.env开头的文件中修改
@@ -41,6 +43,7 @@ export const checkStatus = (status: number): void => {
       break
     case 403:
       message.error('无权限！如有需要请联系管理员')
+      router.push('/user/index') //user作为最底层的权限，可以无脑返回user的主页
       break
     case 404:
       message.error('您访问的资源不存在')
@@ -84,11 +87,13 @@ class RequestHttp {
         const token = localStorage.getItem('token') ?? ''
         const user_id = readStorage(StorageTypes.UID_STORAGE) ?? ''
         const session_id = readStorage(StorageTypes.SESSION_ID_STORAGE) ?? ''
+        const role = readStorage(StorageTypes.ROLE_STORAGE) ?? ''
         config.headers = {
           'Content-Type': 'application/json',
           user_id: user_id,
           session_id: session_id,
-          authorization: 'Bearer ' + token
+          authorization: 'Bearer ' + token,
+          role: role
         }
 
         return config

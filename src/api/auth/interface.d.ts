@@ -21,5 +21,10 @@ export namespace IAuth {
 
   export interface AuthSignUpResponse {}
 
-  export interface AuthSignInResponse {}
+  export interface AuthSignInResponse {
+    id: string
+    username: string
+    sessionId: string
+    role: string
+  }
 }
